@@ -5,16 +5,16 @@ import './App.css';
 
 function App() {
 
-  const [value, setValue] = useState(['0'])
-  console.log(value)
+  const [text, setText] = useState(['0'])
+  // console.log(text)
   
-  const [valueOne, setValueOne] = useState([0])
+  const [values, setValues] = useState({num1: '0'})
   
 
   return (
     <div className='container'>
-      <Text value={value}/>
-      <Buttons value={value} setValue={setValue} valueOne={valueOne} setValueOne={setValueOne}/>
+      <Text text={text} values={values}/>
+      <Buttons text={text} setText={setText} values={values} setValues={setValues}/>
     </div>
   );
 }
