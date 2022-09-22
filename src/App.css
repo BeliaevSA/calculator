@@ -26,7 +26,7 @@ body{
 .text{
   color: white;
   text-align: right;
-  letter-spacing: 0.3rem;
+  /* letter-spacing: 0.1rem; */
   margin-bottom: 0.5em;
 }
 
@@ -96,7 +96,7 @@ body{
     justify-content: flex-end;
     width: 100vw;
     height: 100vh;
-    border-radius: none;
+    border-radius: initial;
   }
 
   .table-body{
