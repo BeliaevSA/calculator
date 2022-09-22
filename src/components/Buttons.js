@@ -4,27 +4,29 @@ import Button from "./Button"
 const Buttons = (props) => {
   
   const addNumber = (ev) => {
-    ev.target.className = 'button button_num_active'
-    setTimeout(() => ev.target.className = 'button', 300) 
-    if(!props.values.num1){
+    if(props.text.length < 9){
+      ev.target.className = 'button button_num_active'
+      setTimeout(() => ev.target.className = 'button', 300) 
+      if(!props.values.num1){
+        let arr = props.text
+        if(arr.length === 1 && arr[0] === '0' && ev.target.textContent === '0') return
+        if(arr.length === 1 && arr[0] === '0' && ev.target.textContent !== '.') arr = []
+        if(arr.includes('.') && ev.target.textContent === '.') return
+
+        arr.push(ev.target.textContent)
+        props.setText([...arr])
+        return
+      }
       let arr = props.text
-      if(arr.length === 1 && arr[0] === '0' && ev.target.textContent === '0') return
-      if(arr.length === 1 && arr[0] === '0' && ev.target.textContent !== '.') arr = []
-      if(arr.includes('.') && ev.target.textContent === '.') return
+        if(props.values.calc === '=') props.setValues({num1: '0'})
+        if(arr.length === 1 && arr[0] === '0' && ev.target.textContent === '0') return
+        if(arr.length === 1 && arr[0] === '0' && ev.target.textContent !== '.') arr = []
+        if(arr.includes('.') && ev.target.textContent === '.') return
 
-      arr.push(ev.target.textContent)
-      props.setText([...arr])
-      return
+        arr.push(ev.target.textContent)
+        props.setText([...arr])
+        return
     }
-    let arr = props.text
-      if(props.values.calc === '=') props.setValues({num1: '0'})
-      if(arr.length === 1 && arr[0] === '0' && ev.target.textContent === '0') return
-      if(arr.length === 1 && arr[0] === '0' && ev.target.textContent !== '.') arr = []
-      if(arr.includes('.') && ev.target.textContent === '.') return
-
-      arr.push(ev.target.textContent)
-      props.setText([...arr])
-      return
   }
 
   const clearNumber = () => {
@@ -73,16 +75,16 @@ const Buttons = (props) => {
       if(props.values.num1 !== '0'){
         switch(props.values.calc){
           case '/': 
-            props.setValues({num1: +props.values.num1 / +props.text.join(''), calc: ev.target.textContent})
+            props.setValues({num1: String(+props.values.num1 / +props.text.join('')), calc: ev.target.textContent})
             break;
           case 'x': 
-            props.setValues({num1: +props.values.num1 * +props.text.join(''), calc: ev.target.textContent})
+            props.setValues({num1: String(+props.values.num1 * +props.text.join('')), calc: ev.target.textContent})
             break;
           case '-': 
-            props.setValues({num1: +props.values.num1 - +props.text.join(''), calc: ev.target.textContent})
+            props.setValues({num1: String(+props.values.num1 - +props.text.join('')), calc: ev.target.textContent})
             break;
           case '+': 
-            props.setValues({num1: +props.values.num1 + +props.text.join(''), calc: ev.target.textContent})
+            props.setValues({num1: String(+props.values.num1 + +props.text.join('')), calc: ev.target.textContent})
             break;
           default:
             break

@@ -19,7 +19,7 @@ body{
   border-radius: 10px;
   
 
-  /* width: 320px; */
+  width: 350px;
 }
 
 .text{
@@ -85,6 +85,10 @@ body{
 }
 
 @media (max-width: 700px) {
+  :root{
+    font-size: 1.3em;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
