@@ -4,6 +4,8 @@ import Button from "./Button"
 const Buttons = (props) => {
   
   const addNumber = (ev) => {
+    ev.target.className = 'button button_num_active'
+    setTimeout(() => ev.target.className = 'button', 300) 
     if(!props.values.num1){
       let arr = props.text
       if(arr.length === 1 && arr[0] === '0' && ev.target.textContent === '0') return
@@ -57,9 +59,9 @@ const Buttons = (props) => {
   const calculator = (ev) => {
     
     let obj = {...props.values}
-    // if(!props.values.num2) {
-    // if(!props.values.calc) {
-      console.log(ev.target.textContent)
+    ev.target.className = 'button button-math button_math_active'
+    console.log(props.text)
+    if(props.text !== '0') setTimeout(() => ev.target.className = 'button button-math', 1000) 
       if(props.values.num1 === '0') {
         props.setValues({
           ...obj, 
@@ -69,10 +71,6 @@ const Buttons = (props) => {
         props.setText(['0'])
       }
       if(props.values.num1 !== '0'){
-        // props.setValues({
-        //   ...obj, 
-        //   calc: ev.target.textContent
-        // })
         switch(props.values.calc){
           case '/': 
             props.setValues({num1: +props.values.num1 / +props.text.join(''), calc: ev.target.textContent})
@@ -91,6 +89,7 @@ const Buttons = (props) => {
         }
         props.setText(['0'])
       }
+      
       // return
     // }
     

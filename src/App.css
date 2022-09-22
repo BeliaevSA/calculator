@@ -55,6 +55,7 @@ body{
   /* text-align: center; */
   border-radius: 100px;
   height: 4rem;
+  transition: background-color 0.5s;
 }
 
 .button:hover{
@@ -75,7 +76,15 @@ body{
   padding: 0.56em;
 }
 
-@media screen and (max-width: 400px) {
+.button_num_active{
+  background-color: rgb(125, 127, 129);;
+}
+
+.button_math_active{
+  background-color: rgb(226, 142, 17);
+}
+
+@media (max-width: 700px) {
   .container {
     display: flex;
     flex-direction: column;
