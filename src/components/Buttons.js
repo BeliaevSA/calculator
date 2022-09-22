@@ -104,7 +104,7 @@ const Buttons = (props) => {
         value='AC'
         onclick={clearNumber}
         className={'button-adding'} 
-        style={{gridArea: 'a'}}/>
+        style={{gridArea: 'a', }}/>
       <Button 
         value='+/-' 
         onclick={negativeNumber} 
