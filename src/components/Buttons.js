@@ -62,8 +62,8 @@ const Buttons = (props) => {
     
     let obj = {...props.values}
     ev.target.className = 'button button-math button_math_active'
-    console.log(props.text)
     if(props.text !== '0') setTimeout(() => ev.target.className = 'button button-math', 1000) 
+
       if(props.values.num1 === '0') {
         props.setValues({
           ...obj, 
@@ -91,13 +91,7 @@ const Buttons = (props) => {
         }
         props.setText(['0'])
       }
-      
-      // return
-    // }
-    
   }
-
-  console.log(props.values)
   
   return (
     <div className="table-body">
